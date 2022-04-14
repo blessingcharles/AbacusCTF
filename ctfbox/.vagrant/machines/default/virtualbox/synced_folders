@@ -1,0 +1,1 @@
+{"virtualbox":{"/data":{"guestpath":"/data","hostpath":"/home/th3h04x/CTFs/myrooms/abacus/data","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/th3h04x/CTFs/myrooms/abacus/ctfbox","disabled":false,"__vagrantfile":true}}}
