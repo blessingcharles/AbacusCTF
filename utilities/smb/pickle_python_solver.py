@@ -12,10 +12,10 @@ unpicked_list = pickle.loads(file_contents)
 dir_name = ""
 
 for i in range(0,20):
-    dir_idx = f"dir_name-{i}"
+    dir_idx = f"emp_secret-{i}"
 
     for t in unpicked_list:
         if dir_idx == t[0]:
             dir_name += t[1]
 
-print(f"[+]Cracked Dir name : {dir_name}")
+print(f"[+]Cracked Employee Secret : {dir_name}")

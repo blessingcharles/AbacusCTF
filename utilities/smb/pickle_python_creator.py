@@ -7,7 +7,7 @@ obfuscated_dirname = "abacus{1p4v#dr45ht1}"
 obs_list = []
 
 for idx , char in enumerate(obfuscated_dirname):
-    obs_list.append((f"dir_name-{idx}" , char))
+    obs_list.append((f"emp_secret-{idx}" , char))
 
 random.shuffle(obs_list)
 pickled = pickle.dumps(obs_list)
