@@ -22,8 +22,6 @@
         [The password will be in the famous rockyou.txt] {{flag 5}}
 
 #### 4. Website (80)
-    
-    Access the /obfuscated-directory-name
 
     1. A Login Page with nosql injection exploit [password]{ flag 6 } and internal employee secret required
         [Ref](https://github.com/blessingcharles/mongodbInjection)

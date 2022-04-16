@@ -1,0 +1,13 @@
+[Unit]
+Description=Mysimple Abacus Webserver
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/var/webserver
+
+[Install]
+WantedBy=multi-user.target
