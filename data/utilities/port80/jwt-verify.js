@@ -12,7 +12,10 @@ module.exports = (req,res,next)=>{
         if(!token){
             throw new Error('authentication failed in token verification')
         }
-        const tokenInfo = jwt.verify(token,"secretkey")
+        const tokenInfo = jwt.verify(token,"armageddon391")
+        if(!tokenInfo.email || !tokenInfo.isAdmin){
+            throw new Error('authentication failed in token verification')
+        }
         req.userData = {email:tokenInfo.email , isAdmin:tokenInfo.isAdmin}
         next();
     }

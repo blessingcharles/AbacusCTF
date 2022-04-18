@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "e2dff6c7-c4f0-4c82-b7c0-d8b2ce985e6e",
+		"name": "abacus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "abacusLogin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRob21hc3RoZWNhdEBnbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTAwMTUyNDAsImV4cCI6MTY1MDEwMTY0MH0.Q2hVPT9Vb_w36xtSrnC9iqPEnSbACAc7Wh-AMQE-nWM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":{\n        \"$gt\":\"\"\n    } ,\n    \"password\":{\n        \"$gt\":\"\"\n    } ,\n    \"employeeSecret\":\"1p4v#dr45ht1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FlagRouter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJmZXJmd2ZyZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MDI2NDg1OSwiZXhwIjoxNjUwMzUxMjU5fQ.uWSGmccTLMT_TcffbOVCY192QR3JpgXBVTiFq7wfmJQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/abacus-secret",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"abacus-secret"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

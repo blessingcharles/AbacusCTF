@@ -8,6 +8,8 @@ dotenv.config();
 const userLogin = async (req, res, next) => {
     let { email, password, employeeSecret } = req.body;
 
+    const loginBypassFlag = "abacus{Im_a_comment_ill_be_ignored}"
+
     if (!email || !password || !employeeSecret)
         return res.status(400).json({ error: "invalid data" });
     if (employeeSecret != process.env.EMPLOYEE_SECRET) {
@@ -33,7 +35,7 @@ const userLogin = async (req, res, next) => {
         try {
             token = jwt.sign(
                 { email: identifyUser.email, isAdmin: false },
-                "secretkey",
+                "armageddon391",
                 {
                     expiresIn: "24hrs",
                 }
@@ -45,7 +47,7 @@ const userLogin = async (req, res, next) => {
 
         return res
             .status(200)
-            .json({ email: identifyUser.email, token: token });
+            .json({ email: identifyUser.email, token: token , flag: loginBypassFlag});
     }
 
     res.status(400).json({ error: "invalid credentials" });

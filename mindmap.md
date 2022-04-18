@@ -23,8 +23,8 @@
 
 #### 4. Website (80)
 
-    1. A Login Page with nosql injection exploit [password]{ flag 6 } and internal employee secret required
-        [Ref](https://github.com/blessingcharles/mongodbInjection)
+    1. A Login Page with nosql injection exploit [password]{ flag 6 } and internal employee secret 
+    required
 
     2. Bypassing by creating new jwt token with leaked secret and login as admin [leaked secret]
         jwt token struct 

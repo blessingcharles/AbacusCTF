@@ -5,6 +5,8 @@ sudo apt-get update
 sudo apt-get install -y vsftpd
 sudo apt-get install -y samba
 sudo apt-get install -y gcc
+sudo apt-get install -y nodejs
+sudo apt-get install -y npm
 
 sudo ufw allow 20/ftp
 sudo ufw allow 21/ftp
@@ -45,14 +47,17 @@ sudo cp /data/utilities/smb/test.txt /samba/thomasthecat/text.txt
 sudo cp /data/utilities/smb/chutney /samba/thomasthecat/chutney
 
 
+#### Setting up port 5000
 
-#### Privilige Escalation from user to root
+
+#### Privilige Escalation from user to root webserver #######
 sudo cp /data/utilities/privesc/webserver.c /var/webserver.c
 sudo gcc /var/webserver.c -o /var/webserver
 sudo chmod 600 /var/webserver.c
 sudo strip /var/webserver
 sudo chmod 744 /var/webserver
 
+### loading the daemon webserver
 sudo cp /data/utilities/privesc/mywebserver.service /etc/systemd/system/mywebserver.service
 sudo systemctl daemon-reload
 sudo systemctl start mywebserver
