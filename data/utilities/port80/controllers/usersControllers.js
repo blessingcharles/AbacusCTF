@@ -9,10 +9,12 @@ const userLogin = async (req, res, next) => {
     let { email, password, employeeSecret } = req.body;
 
     const loginBypassFlag = "abacus{Im_a_comment_ill_be_ignored}"
-
+    
+    console.log(process.env.EMPLOYEE_SECRET)
+    
     if (!email || !password || !employeeSecret)
         return res.status(400).json({ error: "invalid data" });
-    if (employeeSecret != process.env.EMPLOYEE_SECRET) {
+    if (employeeSecret != "1p4v#dr45ht1") {
         return res.status(400).json({
             error: "invalid data",
         });
@@ -53,6 +55,54 @@ const userLogin = async (req, res, next) => {
     res.status(400).json({ error: "invalid credentials" });
 };
 
+const userRegister = async (req , res) =>{
+    const {name , email , password} = req.body  ;
+
+
+    if(!name || !email || !password ) return res.json({error:"invalid data"})
+
+    let identifyUser 
+    try {
+        //checking if email already exists
+         identifyUser = await userModel.findOne({email:email})
+    }
+    catch(err){
+        
+        return res.json({error:"something went wrong"});
+    }
+
+    if(identifyUser) return res.json({error:"email already exists"})
+
+    const user = new userModel({
+        name,
+        email,
+        password
+    })
+
+    try{
+        await user.save();
+    }
+    catch(err){
+       return res.json({error:"something went wrong"})
+    }
+
+     //generating jwt token
+     let token
+     try{
+         token = jwt.sign({email:email},'secretkey',{expiresIn:'24hrs'})
+     }
+     catch(err){
+         const error = new httpError('try again later',400)
+         return next(error)
+     }
+ 
+     res
+     .status(201)
+     .json({email:email,token:token});
+
+}
+
 module.exports = {
     userLogin,
+    userRegister
 };

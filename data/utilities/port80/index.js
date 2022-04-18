@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const fs = require("fs")
 
-const { userLogin } = require("./controllers/usersControllers");
+const { userLogin , userRegister} = require("./controllers/usersControllers");
 const verifyJWT = require("./jwt-verify");
 
 dotenv.config();
@@ -23,6 +23,8 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/login", userLogin);
+
+// app.post("/api/register" ,userRegister )
 
 app.get("/api/abacus-secret",verifyJWT ,(req, res) => {
 
@@ -43,7 +45,8 @@ app.get("/api/abacus-secret",verifyJWT ,(req, res) => {
 
 mongoose
     .connect(
-        `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ngskc.mongodb.net/abacusCTF?retryWrites=true&w=majority`,
+        "mongodb://localhost/abacus",
+        // `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ngskc.mongodb.net/abacusCTF?retryWrites=true&w=majority`,
         { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(() => {

@@ -5,9 +5,23 @@ sudo apt-get update
 sudo apt-get install -y vsftpd
 sudo apt-get install -y samba
 sudo apt-get install -y gcc
+
+# installing nodejs
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt-get install -y npm
 
+#configuring mongodb daemon
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+sudo apt-get install gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo systemctl start mongod
+sudo systemctl enable mongod
+
+# configuring firewall
 sudo ufw allow 20/ftp
 sudo ufw allow 21/ftp
 sudo ufw allow 'Samba'
