@@ -61,10 +61,17 @@ sudo cp /data/utilities/smb/test.txt /samba/thomasthecat/text.txt
 sudo cp /data/utilities/smb/chutney /samba/thomasthecat/chutney
 
 
-#### Setting up port 5000
+        #### 3. Setting up port 5000 #######
+        
+sudo npm install pm2@latest -g
+npm i /data/utilities/port80
+pm2 start /data/utilities/port80/index.js
 
 
-#### Privilige Escalation from user to root webserver #######
+        ### 4. setting up port 8000 #####
+
+
+        #### 5. Privilige Escalation from user to root webserver #####
 sudo cp /data/utilities/privesc/webserver.c /var/webserver.c
 sudo gcc /var/webserver.c -o /var/webserver
 sudo chmod 600 /var/webserver.c
