@@ -8,7 +8,7 @@ dotenv.config();
 const userLogin = async (req, res, next) => {
     let { email, password, employeeSecret } = req.body;
 
-    const loginBypassFlag = "abacus{Im_a_comment_ill_be_ignored}"
+    const loginBypassFlag = "abacus{31k4n1h4n125td}"
     
     console.log(process.env.EMPLOYEE_SECRET)
     

@@ -19,7 +19,6 @@ compromise another service , which finally escalates to get root access .
 
 Happy Hacking , Cheers : )
 
-
 # References for using TryHackme
 1. https://www.youtube.com/watch?v=ROO2pDPgja4
 2. https://rahulmondal666.medium.com/tryhackme-setup-step-by-step-guide-83bed031aca3
