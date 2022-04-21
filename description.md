@@ -1,4 +1,3 @@
-
 ## Description
 
 1. Register an account on tryhackme [https://tryhackme.com] and join the room , via the room code
@@ -20,6 +19,9 @@ compromise another service , which finally escalates to get root access .
 Happy Hacking , Cheers : )
 
 # References for using TryHackme
+
 1. https://www.youtube.com/watch?v=ROO2pDPgja4
 2. https://rahulmondal666.medium.com/tryhackme-setup-step-by-step-guide-83bed031aca3
 3. https://shadowmaster98.medium.com/welcome-60ecf0d0e44d
+
+

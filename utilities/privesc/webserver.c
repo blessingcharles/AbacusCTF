@@ -8,7 +8,7 @@
 #include <ctype.h>
 #include <time.h>
 
-#define PORT 8036
+#define PORT 8037
 #define BUFF_SIZE 1024
 #define SA struct sockaddr_in
 

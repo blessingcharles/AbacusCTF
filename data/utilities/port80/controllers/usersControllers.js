@@ -9,9 +9,7 @@ const userLogin = async (req, res, next) => {
     let { email, password, employeeSecret } = req.body;
 
     const loginBypassFlag = "abacus{31k4n1h4n125td}"
-    
-    console.log(process.env.EMPLOYEE_SECRET)
-    
+        
     if (!email || !password || !employeeSecret)
         return res.status(400).json({ error: "invalid data" });
     if (employeeSecret != "1p4v#dr45ht1") {
@@ -19,7 +17,7 @@ const userLogin = async (req, res, next) => {
             error: "invalid data",
         });
     }
-
+    console.log(email , password)
     let identifyUser;
     try {
         identifyUser = await userModel.findOne({

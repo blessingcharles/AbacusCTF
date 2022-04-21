@@ -59,7 +59,7 @@ sudo systemctl restart nmbd
 #copying smb files from /data
 sudo cp /data/utilities/smb/test.txt /samba/thomasthecat/text.txt
 sudo cp /data/utilities/smb/chutney /samba/thomasthecat/chutney
-
+sudo cp /data/utilities/smb/secretchat /samba/thomasthecat/secretchatx``
 
         #### 3. Setting up port 5000 #######
         

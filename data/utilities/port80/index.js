@@ -45,8 +45,8 @@ app.get("/api/abacus-secret",verifyJWT ,(req, res) => {
 
 mongoose
     .connect(
-        "mongodb://localhost/abacus",
-        // `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ngskc.mongodb.net/abacusCTF?retryWrites=true&w=majority`,
+        // "mongodb://localhost/abacus",
+        `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ngskc.mongodb.net/abacusCTF?retryWrites=true&w=majority`,
         { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(() => {
