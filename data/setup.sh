@@ -59,17 +59,19 @@ sudo systemctl restart nmbd
 #copying smb files from /data
 sudo cp /data/utilities/smb/test.txt /samba/thomasthecat/text.txt
 sudo cp /data/utilities/smb/chutney /samba/thomasthecat/chutney
-sudo cp /data/utilities/smb/secretchat /samba/thomasthecat/secretchatx``
+sudo cp /data/utilities/smb/secretchat /samba/thomasthecat/secretchat
 
         #### 3. Setting up port 5000 #######
         
 sudo npm install pm2@latest -g
 npm i /data/utilities/port80
-pm2 start /data/utilities/port80/index.js
+cd /data/utilities/port80/
+pm2 start index.js
+cd ~
 
-
-        ### 4. setting up port 8000 #####
-
+#### creating new user 
+sudo useradd -m user_31k4n1h4n125td
+echo -e "f4vj0mdh44mkb4r\nf4vj0mdh44mkb4r" | sudo passwd user_31k4n1h4n125td
 
         #### 5. Privilige Escalation from user to root webserver #####
 sudo cp /data/utilities/privesc/webserver.c /var/webserver.c
@@ -79,7 +81,20 @@ sudo strip /var/webserver
 sudo chmod 744 /var/webserver
 
 ### loading the daemon webserver
+echo "[+]Starting the daemon server"
 sudo cp /data/utilities/privesc/mywebserver.service /etc/systemd/system/mywebserver.service
 sudo systemctl daemon-reload
 sudo systemctl start mywebserver
 sudo systemctl enable mywebserver
+
+
+### setting up flags in the box
+
+#### user flag
+echo "abacus{cecf1e1944bf59293e2e310a2307121f}" > .user.txt
+sudo cp .user.txt /home/user_31k4n1h4n125td/
+sudo chown user_31k4n1h4n125td:user_31k4n1h4n125td /home/user_31k4n1h4n125td/.user.txt
+ 
+### root flag
+echo "abacus{0218f1bfbb086d70f33e0ceb5ba30144}" > .root.txt
+sudo cp .root.txt /root/

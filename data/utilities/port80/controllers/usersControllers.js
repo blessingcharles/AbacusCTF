@@ -8,7 +8,7 @@ dotenv.config();
 const userLogin = async (req, res, next) => {
     let { email, password, employeeSecret } = req.body;
 
-    const loginBypassFlag = "abacus{31k4n1h4n125td}"
+    const loginBypassFlag = "abacus{user_31k4n1h4n125td}"
         
     if (!email || !password || !employeeSecret)
         return res.status(400).json({ error: "invalid data" });

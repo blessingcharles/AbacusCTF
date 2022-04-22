@@ -1,2 +1,5 @@
 node_modules/
 .env
+**/node_modules
+/node_modules
+data/utilities/port80/node_modules

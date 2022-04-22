@@ -22,7 +22,7 @@ function Login() {
             toast.info("Seriously!?");
             return;
         }
-        let url = "http://localhost:5000/api/login";
+        let url = "/api/login";
 
         try {
             const res = await axios.post(url, values);

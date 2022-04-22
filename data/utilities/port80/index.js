@@ -2,9 +2,10 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const fs = require("fs")
+const fs = require("fs");
+const path = require("path");
 
-const { userLogin , userRegister} = require("./controllers/usersControllers");
+const { userLogin, userRegister } = require("./controllers/usersControllers");
 const verifyJWT = require("./jwt-verify");
 
 dotenv.config();
@@ -24,29 +25,25 @@ app.use((req, res, next) => {
 
 app.post("/api/login", userLogin);
 
-// app.post("/api/register" ,userRegister )
-
-app.get("/api/abacus-secret",verifyJWT ,(req, res) => {
-
-    if(req.userData.isAdmin === false){
+app.get("/api/secret", verifyJWT, (req, res) => {
+    if (req.userData.isAdmin === false) {
         return res.status(500).json({
-            error:"you are not an admin"
-        })
+            error: "you are not an admin",
+        });
     }
 
-    const data = fs.readFileSync('sshprivatekey', 'utf8')
-
-    let flag = "abacus{" + data + "}"
+    let flag = "abacus{f4vj0mdh44mkb4r}";
     return res.json({
         message: flag,
     });
-
 });
+
+app.use(express.static(path.join(__dirname, "frontend/build")));
 
 mongoose
     .connect(
-        // "mongodb://localhost/abacus",
-        `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ngskc.mongodb.net/abacusCTF?retryWrites=true&w=majority`,
+        "mongodb://localhost/abacus",
+        // `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ngskc.mongodb.net/abacusCTF?retryWrites=true&w=majority`,
         { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(() => {
@@ -57,3 +54,4 @@ mongoose
     .catch((err) => {
         console.log(err);
     });
+
