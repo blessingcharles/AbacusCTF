@@ -2,7 +2,6 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const fs = require("fs");
 const path = require("path");
 
 const { userLogin, userRegister } = require("./controllers/usersControllers");
@@ -31,7 +30,6 @@ app.get("/api/secret", verifyJWT, (req, res) => {
             error: "you are not an admin",
         });
     }
-
     let flag = "abacus{f4vj0mdh44mkb4r}";
     return res.json({
         message: flag,
