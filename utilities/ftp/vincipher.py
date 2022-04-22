@@ -35,12 +35,12 @@ def decrypt(message , key):
     return encrypt(message , key , 1)
 
 
-username = "thomasthecat"
+username = "thomasthecatoonz"
 secret = "zaqw"
 
 encrypted_text = encrypt(username , secret , -1)
 
-hex_digest = "6314b5b113d8c149d79aa42360ee31e4" # md5 of username
+hex_digest = "5c86511993d156bb079996d6abbe5aa83698602d321e37c49324915074002ae7a1af7c2909f1d840ad47bdb3b8cacd419f6b3ba889c58725c1d14e93453ed473" # md5 of username
 
 print(encrypted_text)
 
@@ -48,7 +48,7 @@ for p in itertools.permutations(string.ascii_lowercase , 4):
     key = ''.join(p)
     decrypted = decrypt(encrypted_text , key)
     
-    s = hashlib.md5()
+    s = hashlib.sha512()
     s.update(decrypted.encode())
     cur_hash = s.hexdigest()
 

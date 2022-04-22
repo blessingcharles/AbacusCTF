@@ -30,13 +30,10 @@ function Login() {
     try {
       const res = await axios.post(url, values);
       toast.success("Login Successful!");
-
-      console.log(res.data);
-      toast.success(JSON.stringify(res.data));
+      navigate("/user/profile", { state: res.data});
     } catch (err) {
       console.log("Login failed");
       toast.error("Invalid Credentials.Try again");
-      navigate("/user/profile", { state: values });
     }
   };
 

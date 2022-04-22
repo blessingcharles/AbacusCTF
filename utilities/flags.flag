@@ -1,9 +1,11 @@
+0a. abacus{s1mpu-th3-p1mpu}                     //robots.txt
+0b. abacus{easydoesit}                          //Alpine cipher
+
 1. abacus{fr13nd5f0r3v3r}                       // FTP  crackme            ::  username for smb    [reversing ]
-2. abacus{thomasthecat}                         // FTP   image             ::  password for smb    [stegnography]
+2. thomasthecatoonz                             // Cryptography            ::  password for smb    [stegnography]
 3. armageddon391                                // SMB Wireshark           ::  jwt secret          [networking]
 4. abacus{1p4v#dr45ht1}                         // SMB python pickle       ::  employee secret     [deserialization]
 5. abacus{user_31k4n1h4n125td}                  // port5000 login bypass   ::  ssh-username        [nosql injection]
 6. abacus{f4vj0mdh44mkb4r}                      // port5000 jwt bypass     ::  ssh password        [webdev]
 7. abacus{cecf1e1944bf59293e2e310a2307121f}     // unpreviliged user       ::  user.txt            [networking , os]
 8. abacus{0218f1bfbb086d70f33e0ceb5ba30144}     // root access             ::  root.txt            [Binary exploitation , networking]
-

@@ -10,6 +10,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.mycustom-breaker{
+  word-break: break-all ;
+  max-width: 70vw ;
+}
 
 .styleButton {
     display: flex;

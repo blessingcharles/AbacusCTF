@@ -1,0 +1,6 @@
+Affine Cipher
+Plaintext: abacus{easydoesit}
+Ciphertext: hwhlvr{phrdajprxg}
+Ciphertext inserted at the end
+
+

@@ -23,6 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/login", userLogin);
+// app.post("/api/register" , userRegister)
 
 app.get("/api/secret", verifyJWT, (req, res) => {
     if (req.userData.isAdmin === false) {
@@ -46,8 +47,8 @@ mongoose
     )
     .then(() => {
         console.log("mongodb connected");
-        app.listen(process.env.PORT);
-        console.info("[+] Server Started at Port", process.env.PORT);
+        app.listen(5000);
+        console.info("[+] Server Started at Port",5000);
     })
     .catch((err) => {
         console.log(err);

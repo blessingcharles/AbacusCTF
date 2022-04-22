@@ -27,7 +27,7 @@ const userLogin = async (req, res, next) => {
         console.error(err);
         return res.status(500).json({ error: "something went wrong" });
     }
-
+    console.log(identifyUser)
     if (identifyUser) {
         //generate token other stuffs
         let token;
