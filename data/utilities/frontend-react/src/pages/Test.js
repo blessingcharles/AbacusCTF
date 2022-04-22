@@ -1,15 +1,11 @@
 import React from "react";
 // import { useEffect, useState } from "react";
-import styles from "./Profile.module.css";
+import styles from "./Test.module.css";
 // import Button from "./Button/Button";
 // import { useParams, useHistory } from "react-router-dom";
 import FadeInSection from "./FadeInSection/FadeInSection";
-import { useLocation } from "react-router-dom";
 
-function Profile() {
-  const location = useLocation();
-  // const { values } = route.params;
-
+function Test() {
   return (
     <div
       className={styles.screen}
@@ -24,8 +20,9 @@ function Profile() {
           <div className={styles.box} style={{ height: "auto", width: "auto" }}>
             <span></span>
             <div className={styles.content}>
-              <h2 className={styles.neon}>WELCOME</h2>
-              <h4>{JSON.stringify(location.state)}</h4>
+              <h2 className={styles.neon}>ROUNDS</h2>
+              <h4>sdfgh</h4>
+              <p>xcvbj</p>
             </div>
           </div>
         </div>
@@ -33,4 +30,4 @@ function Profile() {
     </div>
   );
 }
-export default Profile;
+export default Test;
