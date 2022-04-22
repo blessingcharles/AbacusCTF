@@ -35,7 +35,8 @@ sudo mkdir -p /var/ftp/public
 sudo chown nobody:nobody /var/ftp/public
 
 #copying ftp files from /data
-sudo cp /data/utilities/ftp/crackme /var/ftp/public/crackme
+sudo cp /data/utilities/ftp/crackme  /var/ftp/public/crackme
+sudo cp /data/utilities/ftp/message.txt  /var/ftp/public/message.txt
 
                 ### 2. configuring samba ###
 sudo mkdir /samba
@@ -57,7 +58,7 @@ sudo systemctl restart smbd
 sudo systemctl restart nmbd
 
 #copying smb files from /data
-sudo cp /data/utilities/smb/test.txt /samba/thomasthecat/text.txt
+sudo cp /data/utilities/smb/message.txt /samba/thomasthecat/message.txt
 sudo cp /data/utilities/smb/chutney /samba/thomasthecat/chutney
 sudo cp /data/utilities/smb/secretchat /samba/thomasthecat/secretchat
 
