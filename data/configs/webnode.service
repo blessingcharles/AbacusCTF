@@ -5,10 +5,9 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=simple
-User=vagrant
-ExecStart=/usr/bin/node /data/utilities/port80/index.js
 Restart=always
 RestartSec=1
+ExecStart=/usr/bin/node /var/port80/index.js
 TasksMax=infinity
 
 [Install]

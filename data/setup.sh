@@ -63,10 +63,13 @@ sudo cp /data/utilities/smb/chutney /samba/thomasthecatoonz/chutney
 sudo cp /data/utilities/smb/secretchat /samba/thomasthecatoonz/secretchat
 
         #### 3. Setting up port 5000 #######
-        
+
+
 sudo npm install pm2@latest -g
 npm i /data/utilities/port80
 
+sudo cp -rf /data/utilities/port80 /var
+ 
 # node daemon process
 sudo cp /data/configs/webnode.service /etc/systemd/system/webnode.service
 sudo systemctl daemon-reload
