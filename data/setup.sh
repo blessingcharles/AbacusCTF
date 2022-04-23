@@ -66,9 +66,12 @@ sudo cp /data/utilities/smb/secretchat /samba/thomasthecatoonz/secretchat
         
 sudo npm install pm2@latest -g
 npm i /data/utilities/port80
-# cd /data/utilities/port80/
-# pm2 start index.js
-# cd ~
+
+# node daemon process
+sudo cp /data/configs/webnode.service /etc/systemd/system/webnode.service
+sudo systemctl daemon-reload
+sudo systemctl start webnode
+sudo systemctl enable webnode
 
 #### creating new user 
 sudo useradd -m user_31k4n1h4n125td

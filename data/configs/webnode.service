@@ -1,0 +1,15 @@
+[Unit]
+Description=simplenodeserver
+After=network.target mongod.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=vagrant
+ExecStart=/usr/bin/node /data/utilities/port80/index.js
+Restart=always
+RestartSec=1
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target
