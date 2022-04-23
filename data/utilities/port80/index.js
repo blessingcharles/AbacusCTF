@@ -31,7 +31,7 @@ app.get("/api/secret", verifyJWT, (req, res) => {
             error: "you are not an admin",
         });
     }
-    let flag = "abacus{f4vj0mdh44mkb4r}";
+    let flag = "abacus{f4vj0mdh44mkb4r}"; 
     return res.json({
         message: flag,
     });

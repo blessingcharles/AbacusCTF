@@ -8,10 +8,6 @@ lowercase = collections.deque(string.ascii_lowercase + string.digits)
 def encrypt(message : str, key , multiplier : int):
     compressed_message = message.lower()
 
-    for punctuation in str(string.punctuation + ' '):
-        compressed_message = compressed_message.replace(punctuation,'')
-
-
     cycler = itertools.cycle(key.lower())
     long_key = ''.join([next(cycler) for _ in range(len(compressed_message))])
     coded = []
