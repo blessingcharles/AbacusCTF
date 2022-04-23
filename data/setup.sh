@@ -61,6 +61,7 @@ sudo systemctl restart nmbd
 sudo cp /data/utilities/smb/message.txt /samba/thomasthecatoonz/message.txt
 sudo cp /data/utilities/smb/chutney /samba/thomasthecatoonz/chutney
 sudo cp /data/utilities/smb/secretchat /samba/thomasthecatoonz/secretchat
+sudo cp /data/utilities/smb/sss.zip /samba/thomasthecatoonz/sss
 
         #### 3. Setting up port 5000 #######
 
