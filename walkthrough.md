@@ -250,7 +250,7 @@ and put the forged token in Authorization header to get the ssh password as flag
 ```bash
     cat .user.txt
 ```
-
+    
 ## flag10 root.txt
 
 - A service is running as port 8036 running as root so we can exploit it and get root
