@@ -19,7 +19,6 @@
     By using some online crackers for affine cipher
     Eg: https://www.boxentriq.com/code-breaking/affine-cipher
 
-    The flag is abacus{easydoesit}
 
 #### Port Scanning nmap results
 
@@ -77,7 +76,6 @@ Nmap done: 1 IP address (1 host up) scanned in 55.88 seconds
 1. As port 5000 is running a webserver
    in http://10.10.107.164:5000/robots.txt
 
-    abacus{s1mpu-th3-p1mpu}
 
 ## flag3 and flag4 [ftp]
 
@@ -116,7 +114,6 @@ for pos_key in permute(4 , ascii_lowercase):
         break
 ```
 
-        Flag : thomasthecatoonz
 
 ##### crackme
 
@@ -162,7 +159,6 @@ need to do the same .
         passwd += cracker(idx)
 ```
 
-flag: abacus{fr13nd5f0r3v3r}
 
 ## flag 5 and 6 [smb]
 
@@ -190,7 +186,6 @@ The previous flags are used as username and password for smbclient
     unpickle the content of the file and you'll get a list of tuples of emp-secret-{idx}
     so by reordering you will get the flag.
 
-abacus{1p4v#dr45ht1} ---- Employee secret
 
 ##### flag6 : secretchat
 
@@ -205,7 +200,6 @@ abacus{1p4v#dr45ht1} ---- Employee secret
      john --wordlist=/usr/share/wordlists/rockyou.txt myhash --format=raw-sha512
     ```
 
-flag: armageddon391
 
 ## flag 7 and 8 [Webserver]:
 
@@ -229,15 +223,13 @@ change it to nosql payload
 ```
 
     In localstorage we can get the flag and token
-    abacus{user_31k4n1h4n125td}
-    ssh username : user_31k4n1h4n125td
 
 ##### flag 8[jwt bypass]
 
 - As we already got the jwt secret we sign our own jwt secret to become admin .
 - We can use jwt.io website to see what are the contents of the token .
 - It has a field of isAdmin: false , we change it to true and query the /api/secret endpoint
-and put the forged token in Authorization header to get the ssh password as flag abacus{f4vj0mdh44mkb4r}
+and put the forged token in Authorization header to get the ssh password
 
 ## flag9 user.txt
 
@@ -257,7 +249,7 @@ and put the forged token in Authorization header to get the ssh password as flag
 - Vulnerability buffer overflow
 - We need to bruteforce the stack canary , rbp , rip to bypass aslr , pie mitigations
 - We need to use ROPgadgets to get root shell
-
+- Automation script is in the above provided github
 
 ```bash
     cat .root.txt
