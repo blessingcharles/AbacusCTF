@@ -263,8 +263,7 @@ as flag
 - We need to bruteforce the stack canary , rbp , rip to bypass aslr , pie mitigations
 - We need to use ROPgadgets to get root shell
 - Automation script is in the above provided github
-- Full walkthrough of binary exploitation will be released seperately soon : ) .
-
+- Full walkthrough of binary exploitation [link](https://github.com/blessingcharles/AbacusCTF/blob/main/binexploit.pdf).
 ```bash
     cat .root.txt
 ```
