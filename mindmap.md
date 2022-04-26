@@ -16,12 +16,7 @@
     1. python pickle dumped object [ internal employee secret ] {flag 3}
     2. wireshark chat file with passphrase for jwt secret encrypted with sha512 [passphrase] {flag 4}
 
-#### 3. Website (Some Random High port) 5555 
-
-    1. SSRF X-Forwarded-Header to leak ssh-key passphrase
-        [The password will be in the famous rockyou.txt] {{flag 5}}
-
-#### 4. Website (80)
+#### 3. Website (5000)
 
     1. A Login Page with nosql injection exploit [password]{ flag 6 } and internal employee secret 
     required
