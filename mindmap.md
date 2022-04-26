@@ -23,9 +23,9 @@
 
     2. Bypassing by creating new jwt token with leaked secret and login as admin [leaked secret]
         jwt token struct 
-            { userid : <random> , isadmin : false }
+            { email : email , isadmin : false }
 
-    3. Admin can see the ssh-private key in his login page [ssh-passphrase in website 5555]{ flag 7}
+    3. Admin can see the ssh-private key in his login page [ssh-password]{ flag 7}
 
 ### Foothold at the Box
 
@@ -33,7 +33,7 @@
 
     2. Exploit the binary set suid bit and become root
         Steps:
-            Need to combine ret2libc , ROP , bufferoverflow and format string 
+            Need to combine ret2libc , ROP , bufferoverflow 
 
     3. Root access , find hidden in somewhere around the filesystem root.txt {flag 9}
 
