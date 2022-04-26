@@ -3,6 +3,17 @@
 > All the automation scripts code for solving the room will be found at
 [Automation Script](https://github.com/blessingcharles/AbacusCTF/tree/main/utilities)
 
+> Topics Involved
+
+1. Stegnography and affine cipher
+2. Reverse Engineering
+3. Vigener cipher [polyalphabetic substitution]
+4. wireshark dump + sha512 bruteforce(rockyou.txt)
+5. python pickle dump
+6. Nosql Injection auth bypass
+7. JWT forge
+8. ROP binary exploitation [port forwarding to expose the internal port to the subnet]
+
 ## flag1 [stegnography]
 
 1. To see the printable characters in the image run
@@ -16,7 +27,7 @@
 
     - A fine day , it means affine cipher
 
-    By using some online crackers for affine cipher
+    By using online crackers for affine cipher
     Eg: https://www.boxentriq.com/code-breaking/affine-cipher
 
 
@@ -88,7 +99,7 @@ Nmap done: 1 IP address (1 host up) scanned in 55.88 seconds
 ```
 
     - For exploiting the given two binaries you can find the automation scripts in
-      [Automation Script FTP](https://github.com/blessingcharles/AbacusCTF/tree/main/utilities/ftp)
+      [Automation Script FTP](https://github.com/blessingcharles/AbacusCTF/utilities/ftp)
 
 ##### message.txt
 
@@ -99,12 +110,12 @@ Nmap done: 1 IP address (1 host up) scanned in 55.88 seconds
    7c2909f1d840ad47bdb3b8cacd419f6b3ba889c58725c1d14e93453ed473
 3. 4 drinks
 
--   ch3cooh means acetic acid which signifies vinegar which inturn means the given text is
-    vigenere cipher sheizsjddcqpnodv .
+-   ch3cooh means  vinegar which inturn means the given text is vigenere cipher sheizsjddcqpnodv .
 -   4 drinks signified the key length used for the cipher
     -   vigenere cipher
         Vigenere Cipher is a method of encrypting alphabetic text. It uses a simple form of polyalphabetic substitution. [wikipedia](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
-    -   Algo for the Bruter:
+
+    -   Algo for the Bruter to find a perfect key , which inturns equal to the sha512(username) :
 
 ```python
 for pos_key in permute(4 , ascii_lowercase):
@@ -222,14 +233,15 @@ change it to nosql payload
 }
 ```
 
-    In localstorage we can get the flag and token
+    In localstorage we can get the flag and token ,the flag will be used as a username for ssh later
 
 ##### flag 8[jwt bypass]
 
-- As we already got the jwt secret we sign our own jwt secret to become admin .
+- As we already got the jwt secret  we sign our own jwt secret to become admin .
 - We can use jwt.io website to see what are the contents of the token .
 - It has a field of isAdmin: false , we change it to true and query the /api/secret endpoint
-and put the forged token in Authorization header to get the ssh password
+and put the forged token in Authorization header to get admin privilege of site and get ssh password
+as flag
 
 ## flag9 user.txt
 
