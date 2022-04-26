@@ -14,23 +14,6 @@
 7. JWT forge
 8. ROP binary exploitation [port forwarding to expose the internal port to the subnet]
 
-## flag1 [stegnography]
-
-1. To see the printable characters in the image run
-
-```bash
-    strings abacusqn1.jpg | less
-```
-
-    - It contains interesting output like
-      [ A fine day , hwhlvr{phrdajprxg} ]
-
-    - A fine day , it means affine cipher
-
-    By using online crackers for affine cipher
-    Eg: https://www.boxentriq.com/code-breaking/affine-cipher
-
-
 #### Port Scanning nmap results
 
 ```bash
@@ -81,6 +64,23 @@ Nmap done: 1 IP address (1 host up) scanned in 55.88 seconds
 
 
 ```
+
+## flag1 [stegnography]
+
+1. To see the printable characters in the image run
+
+```bash
+    strings abacusqn1.jpg | less
+```
+
+    - It contains interesting output like
+      [ A fine image , hwhlvr{phrdajprxg} ]
+
+    - A fine image , it means affine cipher
+
+    By using online crackers for affine cipher
+    Eg: https://www.boxentriq.com/code-breaking/affine-cipher
+
 
 ## flag2 [robots.txt]
 
@@ -257,11 +257,13 @@ as flag
     
 ## flag10 root.txt
 
-- A service is running as port 8036 running as root so we can exploit it and get root
+- A daemon service is running as port 8036 running as root  so we can exploit it and get root
 - Vulnerability buffer overflow
+- Get the libc and binary file from the server to get the correct versions for the exploit to work  
 - We need to bruteforce the stack canary , rbp , rip to bypass aslr , pie mitigations
 - We need to use ROPgadgets to get root shell
 - Automation script is in the above provided github
+- Full walkthrough of binary exploitation will be released seperately soon : ) .
 
 ```bash
     cat .root.txt
