@@ -16,10 +16,14 @@ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add 
 sudo apt-get install gnupg
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install -y mongodb-org
 sudo systemctl start mongod
 sudo systemctl enable mongod
+
+#Adding mongodb collection data
+mongoimport -d krk -c users --file users.json
+mongoimport -d krk -c articles --file articles.json
 
 # configuring firewall
 sudo ufw allow 20/ftp
@@ -32,7 +36,7 @@ sudo systemctl restart vsftpd
 
 # creating public directory
 sudo mkdir -p /var/ftp/public
-sudo chown nobody:nobody /var/ftp/public
+sudo chown nobody:nogroup /var/ftp/public
 
 #copying ftp files from /data
 sudo cp /data/utilities/ftp/crackme  /var/ftp/public/crackme
