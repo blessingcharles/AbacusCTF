@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "myblogger_backend": "file:utilities/port80",
+    "myblogger_backend": "file:../var/port80",
     "port80": "file:utilities/port80"
   }
 }

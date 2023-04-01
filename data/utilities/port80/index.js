@@ -61,8 +61,10 @@ app.use((error, req, res, next) => {
 });
 
 const murl = "mongodb://localhost/krk";
+const aurl =
+    "mongodb+srv://hello123:test123@cluster0.ngskc.mongodb.net/?retryWrites=true&w=majority";
 mongoose
-    .connect(murl, {
+    .connect(aurl, {
         useNewUrlParser: true,
     })
     .then(() => {

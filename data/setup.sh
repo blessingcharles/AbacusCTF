@@ -53,7 +53,7 @@ sudo chown thomasthecatoonz:sambashare /samba/thomasthecatoonz
 sudo chmod 2770 /samba/thomasthecatoonz
 
 # Adding the user to samba database
-echo -e "fr13nd5f0r3v3r\nfr13nd5f0r3v3r" | sudo smbpasswd -a thomasthecatoonz
+echo -e "r3v3rs3N1nj4\nr3v3rs3N1nj4" | sudo smbpasswd -a thomasthecatoonz
 sudo smbpasswd -e thomasthecatoonz
 
 # copying the config file
@@ -71,9 +71,10 @@ sudo cp /data/utilities/smb/sss.zip /samba/thomasthecatoonz/sss
 
 
 sudo npm install pm2@latest -g
-npm i /data/utilities/port80
-
 sudo cp -rf /data/utilities/port80 /var
+
+sudo npm i /var/port80 -y
+
  
 # node daemon process
 sudo cp /data/configs/webnode.service /etc/systemd/system/webnode.service
@@ -104,12 +105,12 @@ sudo systemctl enable mywebserver
 ### setting up flags in the box
 
 #### user flag
-echo "abacus{cecf1e1944bf59293e2e310a2307121f}" > .user.txt
+echo "KCTF{cecf1e1944bf59293e2e310a2307121f}" > .user.txt
 sudo cp .user.txt /home/user_31k4n1h4n125td/
 sudo chown user_31k4n1h4n125td:user_31k4n1h4n125td /home/user_31k4n1h4n125td/.user.txt
  
 ### root flag
-echo "abacus{0218f1bfbb086d70f33e0ceb5ba30144}" > .root.txt
+echo "KCTF{0218f1bfbb086d70f33e0ceb5ba30144}" > .root.txt
 sudo cp .root.txt /root/
 
 
