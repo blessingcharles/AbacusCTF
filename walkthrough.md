@@ -11,12 +11,11 @@ and become a sudo user. Below mentioned is the intented way to pwn the box.
 > Topics Involved
 1. OSINT
 2. Reverse Engineering
-3. Vigener cipher [polyalphabetic substitution]
-4. wireshark dump + sha512 bruteforce(rockyou.txt)
-5. python pickle dump
-6. Nosql Injection auth bypass
-7. JWT forge
-8. ROP binary exploitation [port forwarding to expose the internal port to the subnet]
+3. wireshark dump + sha512 bruteforce(rockyou.txt)
+4. python pickle dump
+5. Nosql Injection auth bypass
+6. JWT forge
+7. ROP binary exploitation [port forwarding to expose the internal port to the subnet]
 
 #### Port Scanning nmap results
 
