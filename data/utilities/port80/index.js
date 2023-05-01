@@ -1,16 +1,17 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const fs = require("fs");
 const path = require("path");
 
-const { userLogin, userRegister } = require("./controllers/usersControllers");
-const verifyJWT = require("./jwt-verify");
-
-dotenv.config();
+const articleRouter = require("./routes/articles-routes");
+const userRouter = require("./routes/users-routes");
+const verifyJWT = require("./middlewares/verify-jwt");
 const app = express();
 
 app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
+
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
@@ -21,36 +22,55 @@ app.use((req, res, next) => {
 
     next();
 });
+app.use("/uploads/images", express.static(path.join("images")));
+app.use(express.static(path.join(__dirname, "build")));
 
-app.post("/api/login", userLogin);
-// app.post("/api/register" , userRegister)
-
+//REST API
+app.use("/api/articles", articleRouter);
+app.use("/api/users", userRouter);
 app.get("/api/secret", verifyJWT, (req, res) => {
     if (req.userData.isAdmin === false) {
         return res.status(500).json({
             error: "you are not an admin",
         });
     }
-    let flag = "abacus{f4vj0mdh44mkb4r}"; 
+    let flag = "abacus{f4vj0mdh44mkb4r}";
     return res.json({
         message: flag,
     });
 });
 
-app.use(express.static(path.join(__dirname, "frontend/build")));
+//error handling
+app.use((req, res, next) => {
+    const error = new Error("could not find this route");
+    error.code = 400;
+    next(error);
+});
 
+app.use((error, req, res, next) => {
+    if (req.file) {
+        fs.unlink(req.file.path, (error) => {
+            console.log(error);
+        });
+    }
+    if (res.headerSent) {
+        return next(error);
+    }
+    res.status(error.code || 500);
+    res.json({ message: error.message || "something went wrong" });
+});
+
+const murl = "mongodb://localhost/krk";
+const aurl =
+    "mongodb+srv://hello123:test123@cluster0.ngskc.mongodb.net/?retryWrites=true&w=majority";
 mongoose
-    .connect(
-        "mongodb://localhost/abacus",
-        // `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.ngskc.mongodb.net/abacusCTF?retryWrites=true&w=majority`,
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    )
+    .connect(aurl, {
+        useNewUrlParser: true,
+    })
     .then(() => {
         console.log("mongodb connected");
         app.listen(5000);
-        console.info("[+] Server Started at Port",5000);
     })
     .catch((err) => {
         console.log(err);
     });
-

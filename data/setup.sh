@@ -16,10 +16,14 @@ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add 
 sudo apt-get install gnupg
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install -y mongodb-org
 sudo systemctl start mongod
 sudo systemctl enable mongod
+
+#Adding mongodb collection data
+mongoimport -d krk -c users --file users.json
+mongoimport -d krk -c articles --file articles.json
 
 # configuring firewall
 sudo ufw allow 20/ftp
@@ -32,7 +36,7 @@ sudo systemctl restart vsftpd
 
 # creating public directory
 sudo mkdir -p /var/ftp/public
-sudo chown nobody:nobody /var/ftp/public
+sudo chown nobody:nogroup /var/ftp/public
 
 #copying ftp files from /data
 sudo cp /data/utilities/ftp/crackme  /var/ftp/public/crackme
@@ -49,7 +53,7 @@ sudo chown thomasthecatoonz:sambashare /samba/thomasthecatoonz
 sudo chmod 2770 /samba/thomasthecatoonz
 
 # Adding the user to samba database
-echo -e "fr13nd5f0r3v3r\nfr13nd5f0r3v3r" | sudo smbpasswd -a thomasthecatoonz
+echo -e "r3v3rs3N1nj4\nr3v3rs3N1nj4" | sudo smbpasswd -a thomasthecatoonz
 sudo smbpasswd -e thomasthecatoonz
 
 # copying the config file
@@ -67,9 +71,10 @@ sudo cp /data/utilities/smb/sss.zip /samba/thomasthecatoonz/sss
 
 
 sudo npm install pm2@latest -g
-npm i /data/utilities/port80
-
 sudo cp -rf /data/utilities/port80 /var
+
+sudo npm i /var/port80 -y
+
  
 # node daemon process
 sudo cp /data/configs/webnode.service /etc/systemd/system/webnode.service
@@ -100,12 +105,12 @@ sudo systemctl enable mywebserver
 ### setting up flags in the box
 
 #### user flag
-echo "abacus{cecf1e1944bf59293e2e310a2307121f}" > .user.txt
+echo "KCTF{cecf1e1944bf59293e2e310a2307121f}" > .user.txt
 sudo cp .user.txt /home/user_31k4n1h4n125td/
 sudo chown user_31k4n1h4n125td:user_31k4n1h4n125td /home/user_31k4n1h4n125td/.user.txt
  
 ### root flag
-echo "abacus{0218f1bfbb086d70f33e0ceb5ba30144}" > .root.txt
+echo "KCTF{0218f1bfbb086d70f33e0ceb5ba30144}" > .root.txt
 sudo cp .root.txt /root/
 
 
